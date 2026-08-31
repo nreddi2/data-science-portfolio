@@ -10,3 +10,4 @@ Welcome to my Data Science Studio portfolio. Here I will document all of my lear
 ## Portfolio
 - [Blog](blog.md)
 - [Projects](projects.md)
+<a href="[https://linkedin.com](https://www.linkedin.com/in/neelesh-reddi-b532b234b/)" target="_blank">Connect with me on LinkedIn</a>
