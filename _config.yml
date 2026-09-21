@@ -1,6 +1,11 @@
-title: Data Science Portfolio
-description: Documenting my learning in Data Structures
+title: Neelesh Reddi Data Science Portfolio
+description: DTSC 2301 projects, reflections, and data analysis
+theme: jekyll-theme-minimal
+show_downloads: false
 
-remote_theme: pages-themes/modernist@v0.2.0
-plugins:
-- jekyll-remote-theme # add this line to the plugins list if you already have one
+author: Neelesh Reddi
+url: "https://nreddi2.github.io"
+baseurl: "/data-science-portfolio"
+
+github:
+  is_project_page: false
