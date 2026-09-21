@@ -56,11 +56,11 @@ Run the notebook before submitting, then replace the statements below with the v
 * **Education result:** [State which education group has the largest and smallest observed difference, using the chart/table output.]
 * **Interpretation:** [Briefly explain what the descriptive results suggest, without claiming causation.]
 
-![Placeholder for weighted median wage chart](assets/images/placeholder-overall-chart.svg)
+![Weighted median wage and salary income by reported sex](assets/images/figure1_wages_by_sex.png)
 
 *Figure 1. Replace this placeholder automatically by running the notebook; it writes `weighted_median_wages_by_sex.png`.*
 
-![Placeholder for education chart](assets/images/placeholder-education-chart.svg)
+![Weighted median wage and salary income by education and reported sex](assets/images/figure2_wages_by_education.png)
 
 *Figure 2. Replace this placeholder automatically by running the notebook; it writes `weighted_median_wages_by_education.png`.*
 
