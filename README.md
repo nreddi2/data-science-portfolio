@@ -1,6 +1,6 @@
 # Data Science Portfolio
 
-This repository is a GitHub Pages portfolio for DTSC 2301. It is about wage and salary income differences in North Carolina.
+This repository is a GitHub Pages portfolio for DTSC 2301. It uses the `jekyll-theme-minimal` theme required in the uploaded course instructions and contains a reproducible project about wage and salary income differences in North Carolina.
 
 ## Files you will edit personally
 
