@@ -1,11 +1,8 @@
-title: Neelesh Reddi Data Science Portfolio
-description: DTSC 2301 projects, reflections, and data analysis
+title: Data Science Portfolio
+description: Documenting my learning in Data Science
 theme: jekyll-theme-minimal
+markdown: kramdown
 show_downloads: false
-
 author: Neelesh Reddi
-url: "https://nreddi2.github.io"
-baseurl: "/data-science-portfolio"
-
 github:
   is_project_page: false

@@ -1,4 +1,10 @@
+---
+layout: default
+title: Blog
+---
+
 # Blog
-Throughout this course, I will write posts about data science topics I am interested in.
-## Blog 1
-Coming soon.
+
+Short reflections on learning data science and project work.
+
+* [Blog 1: What Is Data Science to Me?](blog/blog1.html)
