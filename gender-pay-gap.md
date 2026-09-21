@@ -84,8 +84,6 @@ Across the full analytic sample, men have a higher weighted median annual wage a
 
 The underlying code is available in [the Jupyter notebook](https://github.com/nreddi2/data-science-portfolio/blob/main/analysis/gender_pay_gap_acs.ipynb). It documents data collection, cleaning, weighting, and visualization steps.
 
-**AI disclosure:** Generative AI was used to help organize the site, draft the analysis workflow, and explain code. The final project interpretation is based on the Census data visualizations produced by the accompanying notebook. The analysis remains descriptive and should not be interpreted as evidence of causation.
-
 ## References
 
 Blau, F. D., & Kahn, L. M. (2017). The gender wage gap: Extent, trends, and explanations. *Journal of Economic Literature, 55*(3), 789-865. https://doi.org/10.1257/jel.20160995
