@@ -14,7 +14,6 @@ I am developing skills in data science and software development so I can use dat
 
 - [Blog](blog.md)
 - [Projects](projects.md)
-- [Gender Pay Gap Project](gender-pay-gap.md)
 - [Download my resume](resume.pdf)
 - [Connect with me on LinkedIn](https://www.linkedin.com/in/neelesh-reddi-b532b234b/)
 - [View this portfolio's GitHub repository](https://github.com/nreddi2/data-science-portfolio)
