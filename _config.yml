@@ -1,8 +1,4 @@
 title: Data Science Portfolio
 description: Documenting my learning in Data Science
 theme: jekyll-theme-minimal
-markdown: kramdown
 show_downloads: false
-author: Neelesh Reddi
-github:
-  is_project_page: false
