@@ -2,9 +2,9 @@
 
 ## Context and research question
 
-The gender pay gap is the observed difference in earnings between groups of workers. It can reflect many overlapping factors, including occupation, industry, education, work patterns, caregiving, discrimination, and labor-market history. This project is a descriptive exploratory data analysis; it identifies patterns in survey data but cannot prove that any one factor causes a difference in pay.
+The gender pay gap is the observed difference in earnings between groups of workers. It can reflect many overlapping factors, including occupation, industry, education, and more. This project is a descriptive data analysis; it identifies patterns in survey data but cannot prove that any one factor causes a difference in pay.
 
-**Research question:** Among North Carolina residents ages 25-64 with positive wage and salary income, how do weighted median annual wage and salary incomes differ by reported sex, and how do those differences vary by educational attainment and age?
+**Research question:** Among North Carolina residents, how do weighted median annual wage and salary incomes differ by reported sex, and how do those differences vary by educational attainment and age?
 
 ## Data source and unit of analysis
 
