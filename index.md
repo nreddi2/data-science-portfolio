@@ -3,7 +3,7 @@ Data Science Student
 UNC Charlotte
 
 ## About Me
-Welcome to my Data Science Studio portfolio. This site documents my learning and coding projects, including an exploratory analysis of gender inequality in wages in North Carolina.
+Welcome to my personal portfolio. This site documents my learning and coding projects, including an  analysis of gender inequality in wages in North Carolina.
 
 I am a third-year student at the University of North Carolina at Charlotte, majoring in Data Science and minoring in Software Development. I use this portfolio to document my learning and projects in data science.
 
