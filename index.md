@@ -14,7 +14,7 @@ page_class: home-page
 </section>
 
 <section aria-labelledby="about-title">
-  <p class="section-kicker">Introduction</p>
+  <p class="large-text">Introduction</p>
   <h2 id="about-title">About me</h2>
   <p>Hey there, I'm Neelesh Reddi! I am currently a third-year student at University of North Carolina at Charlotte, majoring in Data Science and minoring in Software Development. Welcome to my Data Science Studio portfolio. Here I will document all of my learning and coding projects; past, present, and future! Feel free to check out any of my blog posts, or look through my projects!</p>
   <div class="draft-prompt"><strong>placeholder</strong> placeholder </div>
