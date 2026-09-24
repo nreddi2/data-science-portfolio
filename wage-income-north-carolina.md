@@ -132,7 +132,7 @@ The occupation chart shows six common occupations that have at least 100 unweigh
 | First-line retail sales supervisors | $60,915.00 | $40,610.00 | 431 | 333 |
 | Customer service representatives | $47,107.60 | $37,056.63 | 250 | 503 |
 
-<div class="draft-prompt"><strong>Your writing:</strong> Compare two occupations with exact values and group counts. Explain why a difference within an occupation code is not automatically a comparison of identical jobs, seniority, schedules, or responsibilities.</div>
+<div class="draft-prompt"><strong>Your writing:</strong> The selected occupation codes show very different-sized differences. Elementary/middle school teachers: $51,777.75 men versus $49,442.68 women; 133 men's and 898 women's records; 4.5% gap. Driver/sales workers and truck drivers: $52,793.00 men versus $25,381.25 women; 793 men's and 106 women's records; 51.9% gap. It should be noted that a difference within an occupation code does not necessarily a comparison of identical jobs, schedules, or responsibilities. The chart doesn't show that two people in identical roles receive different pay.</div>
 
 ## Work-time sensitivity check
 
@@ -144,13 +144,13 @@ In this restricted group, the weighted medians are $65,991.25 for men (17,382 re
 
 ## Storytelling and interpretation
 
-<div class="draft-prompt"><strong>Write this section yourself after reviewing the charts.</strong> Connect the four figures into one answer to your research question. Explain what is consistent across figures and what changes by group. State a conclusion the data support and one tempting conclusion they do not support. Use concrete numbers, and avoid saying that the study proves discrimination or equal pay for equal work.</div>
+<div class="draft-prompt"><strong> After analyzing the data, the men's weighted median was found to be higher in the overall sample and in every displayed education, age, and selected occupation group. This was nothing new, as some degree of wage gap between gender inequality was, truthfully, to be expected. However, the size of the difference does notably change per group: education gaps are about 26.9%–33.3%, age-group dollar gaps are about $8,122–$18,275, and selected occupations range from about 4.5% to 51.9%. Additionally, the full time/year round comparison was found to be smaller than the overall comparison (16.9% vs 25%). </div>
 
 ## Limitations, ethics, and reflection
 
 These results depend on self-reported survey data and a person-level sample. The analysis uses `PWGTP` for weighted estimates but does not calculate margins of error with the PUMS replicate weights. `WAGP` excludes self-employment income and benefits. Annual earnings reflect both pay rates and time worked. The `SEX` field has only two categories. The occupation codes combine people with different job duties, schedules, and seniority; industry, caregiving, tenure, and direct career experience are not controlled for in the core charts. Results should not be used to judge individuals or claim that any group’s earnings reflect ability or effort.
 
-<div class="draft-prompt"><strong>Your reflection:</strong> Describe a limitation that surprised you, how it changed your interpretation, and one follow-up analysis you would attempt with more time. This should be your own account of working through the data, not a generic summary.</div>
+<div class="draft-prompt"><strong>Your reflection:</strong> I would not say there really was a limitation that personally surprised me or changed the way I read a chart. If I were to do a follow-up analysis of this, I would probably try to include industry into the equation; I think that's another detail we can use and it could maybe be helpful data to gather for young women to use who seek to enter certain industries. </div>
 
 ## Code and transparency
 
