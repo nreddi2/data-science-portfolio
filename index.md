@@ -16,14 +16,12 @@ page_class: home-page
 </section>
 
 <section aria-labelledby="about-title">
-  <p class="section-kicker">Introduction</p>
   <h2 id="about-title">About me</h2>
   <p>I study Data Science at the University of North Carolina at Charlotte and minor in Software Development. My portfolio currently focuses on a Census microdata project about wage and salary income in North Carolina.</p>
   <div class="draft-prompt"><strong>Write in your own voice before submission:</strong> Add 2–3 sentences about a real experience, what drew you to data science, and your career interests. Remove this box afterward.</div>
 </section>
 
 <section aria-labelledby="explore-title">
-  <p class="section-kicker">Explore</p>
   <h2 id="explore-title">Portfolio</h2>
   <div class="feature-grid">
     <article class="card"><span class="tag">Project 01</span><h3>Wage income in North Carolina</h3><p>An exploratory analysis of 2024 Census survey data by reported sex, education, age, and selected occupations.</p><p><a href="{{ '/projects/wage-income-north-carolina/' | relative_url }}">Read the project →</a></p></article>
