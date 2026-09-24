@@ -10,6 +10,8 @@ page_class: content-page prose
 
 <p class="lede">A 2024 American Community Survey PUMS analysis of annual wage and salary income across education, age, and selected occupations.</p>
 
+September 19, 2026
+
 ## Problem definition
 
 My starting question was: “How does the gender pay gap change depending on factors such as education level, age, occupation, or years of work experience?” Due to the available Census data I decided to revise it to a narrower, measurable question:
