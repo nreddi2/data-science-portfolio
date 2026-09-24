@@ -12,7 +12,7 @@ page_class: content-page prose
 
 ## Problem definition
 
-My starting question was: “How does the gender pay gap change depending on factors such as education level, age, occupation, or years of work experience?” The available Census data require a narrower, measurable question:
+My starting question was: “How does the gender pay gap change depending on factors such as education level, age, occupation, or years of work experience?” Due to the available Census data I decided to revise it to a narrower, measurable question:
 
 > Among North Carolina residents ages 25–64 with positive wage and salary income, how does weighted median annual wage income differ by reported sex across education, age, and selected occupations?
 
