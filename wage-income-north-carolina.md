@@ -163,7 +163,7 @@ I would not say there really was a limitation that personally surprised me or ch
 
 The full analysis is in the [2024 ACS PUMS Jupyter notebook](https://github.com/nreddi2/data-science-portfolio/blob/main/analysis/wage_income_acs_2024.ipynb). The [summary tables and filter audit](https://github.com/nreddi2/data-science-portfolio/tree/main/analysis/results) let readers check the numbers behind the figures. The public [GitHub repository](https://github.com/nreddi2/data-science-portfolio) contains this page, the charts, and the resume.
 
-AI (GPT Terra 5.6) was utilized in this project. AI provided guidance for the visualizations, aided in cleaning data, and also used to check and locate syntax errors in my code. It also helped with the formatting of my information and making the data look more presentable.
+AI (GPT Terra 5.6) was utilized in this project. AI provided guidance for the visualizations, aided in cleaning data, created citations and also used to check and locate syntax errors in my code. It also helped with the formatting and layout of the information and making the data look more presentable.
 
 ## References
 
