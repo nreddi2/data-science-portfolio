@@ -13,8 +13,9 @@ page_class: home-page
 <section aria-labelledby="about-title">
   <p class="section-kicker home-kicker">Introduction</p>
   <h2 id="about-title">About me</h2>
-  <p>Hey there, I'm Neelesh Reddi! I am currently a third-year student at University of North Carolina at Charlotte, majoring in Data Science and minoring in Software Development. Welcome to my Data Science Studio portfolio. Here I will document all of my learning and coding projects; past, present, and future! Feel free to check out any of my blog posts, or look through my projects!</p>
-  <p>I am really interested in working with machine learning and AI.</p>
+  <p>Hey there, I'm Neelesh Reddi! I am currently a third-year student at University of North Carolina at Charlotte, majoring in Data Science and minoring in Software Development. Welcome to my personal portfolio. Here I will document all of my learning and coding projects; past, present, and future! Feel free to check out any of my blog posts, or look through my projects!</p>
+  <p>I am really interested in working with machine learning and AI. I am passionate about learning new things, and in the future I want to be able to apply data driven thinking to real problems. I'm especially drawn to natural language processing and the challenge of turning unstructured data into something useful.
+  </p>
 </section>
 
 <section aria-labelledby="explore-title">
