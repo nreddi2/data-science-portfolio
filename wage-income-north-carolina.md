@@ -80,7 +80,7 @@ The corrected notebook produced four charts with titles, units, readable labels,
   <figcaption>Figure 1. Weighted median annual wage and salary income in 2024 dollars among the 41436 included records. Men: $60,915.00 (21,164 records); women: $45686.25 (20,272 records). The difference between medians is $15228.75, or 25.0% of the men's median.</figcaption>
 </figure>
 
-<div class="draft-prompt"><strong> The men's weighted median was found to be $60915.00, while the woman's weighted median was $45686.25. The difference between the two medians is $15,228.75, which is equal to 25.0% of the men's median. the dollar difference, and the percentage difference. The chart shows an overall difference in annual wages among the included people. </div>
+<div class="draft-prompt"> The men's weighted median was found to be $60915.00, while the woman's weighted median was $45686.25. The difference between the two medians is $15,228.75, which is equal to 25.0% of the men's median. the dollar difference, and the percentage difference. The chart shows an overall difference in annual wages among the included people. </div>
 
 ### Figure 2 · Education groups
 
@@ -112,7 +112,7 @@ The corrected notebook produced four charts with titles, units, readable labels,
 | 45–54 | $65,991.25 | $50,762.50 | $15,228.75 |
 | 55–64 | $63,960.75 | $45,686.25 | $18,274.50 |
 
-<div class="draft-prompt"><strong>The smallest difference between medians is $8,122.00 at ages 25–34 ($49,747.25 men; $41,625.25 women). The largest difference is $18,274.50 at ages 55–64 ($63,960.75 men; $45,686.25 women). It should be noted that age isn't the same as job experience. People can enter work, switch fields, or take time away from work at different ages. </div>
+<div class="draft-prompt">The smallest difference between medians is $8,122.00 at ages 25–34 ($49,747.25 men; $41,625.25 women). The largest difference is $18,274.50 at ages 55–64 ($63,960.75 men; $45,686.25 women). It should be noted that age isn't the same as job experience. People can enter work, switch fields, or take time away from work at different ages. </div>
 
 ### Figure 4 · Selected occupations
 
@@ -144,7 +144,7 @@ In this restricted group, the weighted medians are $65,991.25 for men (17,382 re
 
 ## Storytelling and interpretation
 
-<div class="draft-prompt"><strong> After analyzing the data, the men's weighted median was found to be higher in the overall sample and in every displayed education, age, and selected occupation group. This was nothing new, as some degree of wage gap between gender inequality was, truthfully, to be expected. However, the size of the difference does notably change per group: education gaps are about 26.9%–33.3%, age-group dollar gaps are about $8,122–$18,275, and selected occupations range from about 4.5% to 51.9%. Additionally, the full time/year round comparison was found to be smaller than the overall comparison (16.9% vs 25%). </div>
+<div class="draft-prompt"> After analyzing the data, the men's weighted median was found to be higher in the overall sample and in every displayed education, age, and selected occupation group. This was nothing new, as some degree of wage gap between gender inequality was, truthfully, to be expected. However, the size of the difference does notably change per group: education gaps are about 26.9%–33.3%, age-group dollar gaps are about $8,122–$18,275, and selected occupations range from about 4.5% to 51.9%. Additionally, the full time/year round comparison was found to be smaller than the overall comparison (16.9% vs 25%). </div>
 
 ## Limitations, ethics, and reflection
 
@@ -156,7 +156,7 @@ These results depend on self-reported survey data and a person-level sample. The
 
 The full analysis is in the [2024 ACS PUMS Jupyter notebook](https://github.com/nreddi2/data-science-portfolio/blob/main/analysis/wage_income_acs_2024.ipynb). The [summary tables and filter audit](https://github.com/nreddi2/data-science-portfolio/tree/main/analysis/results) let readers check the numbers behind the figures. The public [GitHub repository](https://github.com/nreddi2/data-science-portfolio) contains this page, the charts, and the resume.
 
-<div class="draft-prompt"><strong>AI DISCLAIMER:strong> AI (GPT Terra 5.6) was utilized in this project. AI provided guidance for the visualizations, aided in cleaning data, and also used to check and locate syntax errors in my code. It also helped with the formatting of my information and making the data look more presentable.</div>
+<div class="draft-prompt"><strong>AI DISCLAIMER:</strong> AI (GPT Terra 5.6) was utilized in this project. AI provided guidance for the visualizations, aided in cleaning data, and also used to check and locate syntax errors in my code. It also helped with the formatting of my information and making the data look more presentable.</div>
 
 ## References
 
