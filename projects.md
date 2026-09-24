@@ -1,12 +1,15 @@
+---
+layout: default
+title: Projects
+permalink: /projects/
+---
+
+<span class="eyebrow">Portfolio</span>
 # Projects
 
-This section documents my data science projects, research questions, and data stories I create throughout the semesters.
-
----
-## Project 1: Gender Pay Gap in North Carolina
-
-**Research question:** How does the gender pay gap change depending on factors such as education level, age, occupation, industry, and work patterns among working-age North Carolina residents?
-
-This project uses the U.S. Census Bureau's 2024 American Community Survey 1-Year Public Use Microdata Sample (ACS PUMS) API. I use Python and pandas to clean the data and create descriptive visualizations of wage and salary income by reported sex, education, and age group.
-
-[Read the complete project](gender-pay-gap.md)
+<div class="card">
+  <span class="tag">Exploratory data analysis</span>
+  <h2>Wage income in North Carolina</h2>
+  <p>2024 American Community Survey 1-Year Public Use Microdata Sample. The project examines weighted annual wage and salary income across groups defined by reported sex, education, age, and selected occupations.</p>
+  <p><a href="{{ '/projects/wage-income-north-carolina/' | relative_url }}">Open the complete project →</a></p>
+</div>
