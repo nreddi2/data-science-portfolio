@@ -17,7 +17,7 @@ My starting question was: “How does the gender pay gap change depending on fac
 > Among North Carolina residents ages 25–64 with positive wage and salary income, how does weighted median annual wage income differ by reported sex across education, age, and selected occupations?
 
 
-<div class="draft-prompt"><light></light> The gender pay/wage gap has been a long standing injustice historically. Even today, it seems that this inequality continues to be prevalent. However, nowadays there is a lot more awareness about these topics, and there are rules and regulations put in place so that these injustices can be avoided to a better extent. I wanted to seek out these issues and find whether these gender inequalities seem to be as prevalent, and also see if certain other factors, such as an occupation, actually lead to different disparity levels of wages in the workforce.
+<div class="draft-prompt"><light></light> The gender pay/wage gap has been a long standing gender inequality historically. Even today, it seems that this inequality continues to be prevalent. However, nowadays there is a lot more awareness about these topics, and there are rules and regulations put in place so that these injustices can be avoided to a better extent. I wanted to seek out these issues and find whether these gender inequalities seem to be as prevalent, and also see if certain other factors, such as an occupation, actually lead to different disparity levels of wages in the workforce.
 
 </div>
 
