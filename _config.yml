@@ -1,4 +1,8 @@
-title: Data Science Portfolio
-description: Documenting my learning in Data Science
-theme: jekyll-theme-minimal
-show_downloads: false
+title: Neelesh Reddi | Data Science Portfolio
+description: Data science projects and writing by Neelesh Reddi
+url: https://nreddi2.github.io
+baseurl: /data-science-portfolio
+markdown: kramdown
+exclude:
+  - START-HERE.txt
+  - data
