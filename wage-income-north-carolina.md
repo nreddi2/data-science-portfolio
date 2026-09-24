@@ -67,22 +67,20 @@ The notebook creates `income_adjustment` after checking whether `ADJINC` arrived
 | Keep positive `WAGP` | 41,436 | 14,097 |
 | Keep positive `ADJINC` and `PWGTP` | 41,436 | 0 |
 
-The API represents some inapplicable numeric fields as zero rather than blank. Thus, the zero blank counts for `WAGP`, `WKHP`, and `WKWN` do **not** mean every respondent worked or had wage income. The 46,413 blank occupation and industry entries are preserved as missing; these fields are used only for the selected-occupation comparison. The core sample excludes 72,834 records in total, mostly because of the age restriction and zero/nonpositive wage income.
-
-<div class="draft-prompt"><strong>Your writing:</strong> Explain why you kept people with positive wage income in the past 12 months and whom that choice excludes. Describe one real choice you made while checking the corrected output.</div>
+The API represents some inapplicable numeric fields as zero rather than blank. Thus, the zero blank counts for `WAGP`, `WKHP`, and `WKWN` do **not** mean every respondent worked or had wage income. The 46,413 blank occupation and industry entries are preserved as missing; these fields are used only for the selected-occupation comparison. The core sample excludes 72,834 records in total. A lot of these omissions were from the age restriction, but also from filtering the wages. Positive wages were specifically filtered for so that any adults who do not work or gets their income from other sources would not be accounted for.
 
 ## Data understanding and visualizations
 
-The corrected notebook produced four charts with titles, units, readable labels, and the underlying group counts. Each chart uses the person survey weight. Dollar and percentage gaps are calculated from the two group medians; they are descriptive comparisons, not paired differences or causal effects. The tables below report exact computed medians to two decimal places, while the chart labels are rounded for readability. Record counts are **unweighted**.
+The corrected notebook produced four charts with titles, units, readable labels, and the underlying group counts. Each chart uses the person survey weight. Dollar and percentage gaps are calculated from the two group medians; they are descriptive comparisons, not paired differences or causal effects. The tables below report exact computed medians to two decimal places, while the chart labels are rounded for readability. Record counts are unweighted.
 
 ### Figure 1 · Overall comparison
 
 <figure>
   <img src="{{ '/assets/images/figure1_overall.png' | relative_url }}" alt="Bar chart of weighted median annual wage income: men $60,915 and women about $45,686.">
-  <figcaption>Figure 1. Weighted median annual wage and salary income in 2024 dollars among the 41,436 included records. Men: $60,915.00 (21,164 records); women: $45,686.25 (20,272 records). The difference between medians is $15,228.75, or 25.0% of the men's median.</figcaption>
+  <figcaption>Figure 1. Weighted median annual wage and salary income in 2024 dollars among the 41436 included records. Men: $60,915.00 (21,164 records); women: $45686.25 (20,272 records). The difference between medians is $15228.75, or 25.0% of the men's median.</figcaption>
 </figure>
 
-<div class="draft-prompt"><strong>Your writing:</strong> State the men’s and women’s weighted medians, the dollar difference, and the percentage difference. Explain what the chart directly shows in two or three sentences.</div>
+<div class="draft-prompt"><strong> The men's weighted median was found to be $60915.00, while the woman's weighted median was $45686.25. The difference between the two medians is $15,228.75, which is equal to 25.0% of the men's median. the dollar difference, and the percentage difference. The chart shows an overall difference in annual wages among the included people. </div>
 
 ### Figure 2 · Education groups
 
@@ -98,7 +96,7 @@ The corrected notebook produced four charts with titles, units, readable labels,
 | Bachelor’s degree | $81,220.00 | $56,854.00 | 5,551 | 5,946 |
 | Graduate or professional degree | $106,601.25 | $71,067.50 | 3,309 | 4,325 |
 
-<div class="draft-prompt"><strong>Your writing:</strong> Compare at least two education groups using exact values from the notebook. Explain whether the gap grows, shrinks, or varies irregularly across the groups. Describe one pattern you did not expect.</div>
+<div class="draft-prompt"><strong>Your writing:</strong> In all four education groups, the men's weighted median is found to be higher than the women's. At a high school level, the men's median was $42,640.50 and the women's was $30,457.50. This gap increases the higher you go in education, jumping up to $81,220.00 for men and $56,854.00 for women at a bachelor's degree and a $106,601.25 for men and $71,067.50 for women at a graduate/professional degree. It was interesting to find that the gap would increase as the education levels went higher; I honestly expected it to be more even at a higher level.</div>
 
 ### Figure 3 · Age groups
 
@@ -114,7 +112,7 @@ The corrected notebook produced four charts with titles, units, readable labels,
 | 45–54 | $65,991.25 | $50,762.50 | $15,228.75 |
 | 55–64 | $63,960.75 | $45,686.25 | $18,274.50 |
 
-<div class="draft-prompt"><strong>Your writing:</strong> Name the age groups with the smallest and largest observed differences, with exact values. Say why age alone cannot establish years of work experience.</div>
+<div class="draft-prompt"><strong>The smallest difference between medians is $8,122.00 at ages 25–34 ($49,747.25 men; $41,625.25 women). The largest difference is $18,274.50 at ages 55–64 ($63,960.75 men; $45,686.25 women). It should be noted that age isn't the same as job experience. People can enter work, switch fields, or take time away from work at different ages. </div>
 
 ### Figure 4 · Selected occupations
 
