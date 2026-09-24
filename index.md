@@ -8,21 +8,16 @@ page_class: home-page
 <section class="hero">
   <span class="eyebrow">Data science portfolio · UNC Charlotte</span>
   <h1>Neelesh <span>Reddi</span></h1>
-  <p class="lede">Data Science student minoring in Software Development. This portfolio collects my research projects, writing, and resume.</p>
+  <p class="lede"></p>
   <div class="hero-actions">
-    <a class="button" href="{{ '/projects/' | relative_url }}">Explore my project</a>
-    <a class="button secondary" href="{{ '/resume.pdf' | relative_url }}" download>Download resume</a>
-    <a class="button tertiary" href="mailto:reddi.neelesh@gmail.com">Email me</a>
   </div>
 </section>
 
 <section aria-labelledby="about-title">
   <p class="section-kicker">Introduction</p>
   <h2 id="about-title">About me</h2>
-  <p>Hey there, I'm Neelesh Reddi! I am currently a third-year student at University of North Carolina at Charlotte, majoring in Data Science and minoring in Software Development. 
-</p>
-  <div class="draft-prompt"><strong>Welcome to my Data Science Studio portfolio. Here I will document all of my learning and coding projects; past, present, and future!
-Feel free to check out any of my blog posts, or look through my projects!</div>
+  <p>Hey there, I'm Neelesh Reddi! I am currently a third-year student at University of North Carolina at Charlotte, majoring in Data Science and minoring in Software Development. Welcome to my Data Science Studio portfolio. Here I will document all of my learning and coding projects; past, present, and future! Feel free to check out any of my blog posts, or look through my projects!</p>
+  <div class="draft-prompt"><strong>placeholder</strong> placeholder </div>
 </section>
 
 <section aria-labelledby="explore-title">
