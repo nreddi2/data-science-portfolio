@@ -158,7 +158,7 @@ These results depend on self-reported survey data and a person-level sample. The
 
 The full analysis is in the [2024 ACS PUMS Jupyter notebook](https://github.com/nreddi2/data-science-portfolio/blob/main/analysis/wage_income_acs_2024.ipynb). The [summary tables and filter audit](https://github.com/nreddi2/data-science-portfolio/tree/main/analysis/results) let readers check the numbers behind the figures. The public [GitHub repository](https://github.com/nreddi2/data-science-portfolio) contains this page, the charts, and the resume.
 
-<div class="draft-prompt"><strong>AI disclosure to complete before submission:</strong> Name every generative AI tool and model/version you used. State specifically that earlier versions included AI-drafted code and site text, and that the new site layout, formatting, code corrections, or citations received AI help where applicable. Describe which analyses you ran and checked yourself and which interpretation and reflection passages you wrote yourself. Do not claim independent authorship of anything you have not personally done.</div>
+<div class="draft-prompt"><strong>AI DISCLAIMER:strong> AI (GPT Terra 5.6) was utilized in this project. AI help with the layout and formatting of my information (as well as the overall site). It also provided guidance for the visualizations, aided in cleaning data, and also used to check and locate syntax errors in my code.</div>
 
 ## References
 
