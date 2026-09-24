@@ -29,6 +29,8 @@ page_class: home-page
   </div>
 </section>
 
+<p> This website was made with the help of AI. Any future work I upload here will include a similar disclaimer if it applies. </p>
+
 <section aria-labelledby="connect-title">
   <p class="section-kicker">Connect</p>
   <h2 id="connect-title">Links</h2>
