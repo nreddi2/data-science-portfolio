@@ -25,7 +25,7 @@ page_class: home-page
   <h2 id="explore-title">Portfolio</h2>
   <div class="feature-grid">
     <article class="card"><span class="tag">Project 01</span><h3>Wage income in North Carolina</h3><p>An exploratory analysis of 2024 Census survey data by reported sex, education, age, and selected occupations.</p><p><a href="{{ '/projects/wage-income-north-carolina/' | relative_url }}">Read the project →</a></p></article>
-    <article class="card"><span class="tag">Writing</span><h3>What Is Data Science to Me?</h3><p>A personal introduction to my background, interests, and goals.</p><p><a href="{{ '/blog/introduction/' | relative_url }}">Read the post →</a></p></article>
+    <article class="card"><span class="tag">Writing</span><h3>What Is Data Science to Me?</h3><p>A personal introduction to my background, interests, and goals.</p><p><a href="{{ '/blog/blog1/' | relative_url }}">Read the post →</a></p></article>
   </div>
 </section>
 
