@@ -17,8 +17,11 @@ page_class: home-page
 
 <section aria-labelledby="about-title">
   <h2 id="about-title">About me</h2>
-  <p>I study Data Science at the University of North Carolina at Charlotte and minor in Software Development. My portfolio currently focuses on a Census microdata project about wage and salary income in North Carolina.</p>
-  <div class="draft-prompt"><strong>Write in your own voice before submission:</strong> Add 2–3 sentences about a real experience, what drew you to data science, and your career interests. Remove this box afterward.</div>
+  <p>Hey there, I'm Neelesh Reddi! I am currently a third-year student at University of North Carolina at Charlotte, majoring in Data Science and minoring in Software Development. 
+Welcome to my Data Science Studio portfolio. Here I will document all of my learning and coding projects; past, present, and future!
+Feel free to check out any of my blog posts, or look through my projects!
+.</p>
+  <div class="draft-prompt"></div>
 </section>
 
 <section aria-labelledby="explore-title">
