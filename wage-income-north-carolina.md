@@ -21,13 +21,14 @@ My starting question was: “How does the gender pay gap change depending on fac
 
 The gender pay/wage gap has been a long standing gender inequality historically. Even today, it seems that this inequality continues to be prevalent. However, nowadays there is a lot more awareness about these topics, and there are rules and regulations put in place so that these injustices can be avoided to a better extent. I wanted to seek out these issues and find whether these gender inequalities seem to be as prevalent, and also see if certain other factors, such as an occupation, actually lead to different disparity levels of wages in the workforce.
 
-</div>
 
 ## Data description
 
 The data comes from the U.S. Census Bureau’s [2024 ACS 1-Year PUMS API](https://api.census.gov/data/2024/acs/acs1/pums.html). Since I decided to narrow the results for North Carolina residents, the data was queried for North Carolina (`state:37`). Each row is one sampled person. It should be noted that PUMS is a survey sample, so it is not a complete list of employee payroll records. [2024 PUMS data dictionary](https://www2.census.gov/programs-surveys/acs/tech_docs/pums/data_dict/PUMS_Data_Dictionary_2024.pdf) defines each variable and its codes.
 
 The dataset contains 114,270 unweighted North Carolina person records. That number is the size of the downloaded sample, not the number of North Carolina residents. So after the age and positive-wage restrictions (that will be further expanded on in the next section), **41,436 records** remain. I use the Census person weight `PWGTP` to calculate medians intended to describe people rather than treating every sampled record as equally representative. The record counts shown beside my charts are still unweighted counts.
+
+“Unweighted” means this is the number of rows returned, not an estimate of the number of people living in North Carolina. After applying the age, sex-code, education-code, positive-wage, adjustment-factor, and survey-weight requirements described below, 41,436 records remained in the main analytic sample.
 
 | Detail | Value |
 |:--|:--|
@@ -49,11 +50,13 @@ The dataset contains 114,270 unweighted North Carolina person records. That numb
 | Industry | `INDP` | Downloaded for context but not analyzed in the current research question. |
 | Survey weight | `PWGTP` | Person weight for weighted descriptive estimates. |
 
-The ACS does not provide a direct measure of **years of work experience**. Age is not a substitute for experience. Because annual income also depends on the amount of time worked, the project does not interpret its annual-income comparisons as equal-pay-for-equal-work estimates.
+* The ACS does not provide a direct measure of **years of work experience**. Age is not a substitute for experience.
 
 ## Data cleaning and preparation
 
-The [analysis notebook](https://github.com/nreddi2/data-science-portfolio/blob/main/analysis/wage_income_acs_2024.ipynb) shows the API request, missing-value counts, a step-by-step filter log, the income adjustment, and the group summaries. The analytic sample keeps records with ages 25–64, positive wage income, valid education and sex codes, a positive person weight, and a positive income adjustment factor.
+
+
+The notebook (linked at the end) shows the API request, missing value counts, a filter log, the income adjustment, and the group summaries. The analytic sample keeps records with ages 25–64, positive wage income, valid education and sex codes, a positive person weight, and a positive income adjustment factor.
 
 ```python
 df["wage_2024"] = df["WAGP"] * df["income_adjustment"]
@@ -146,7 +149,7 @@ Compare the 16.9% restricted-group gap with the 25.0% overall gap. Say what this
 
 ## Storytelling and interpretation
 
-After analyzing the data, the men's weighted median was found to be higher in the overall sample and in every displayed education, age, and selected occupation group. This was nothing new, as some degree of wage gap between gender inequality was, truthfully, to be expected. However, the size of the difference does notably change per group: education gaps are about 26.9%–33.3%, age-group dollar gaps are about $8,122–$18,275, and selected occupations range from about 4.5% to 51.9%. Additionally, the full time/year round comparison was found to be smaller than the overall comparison (16.9% vs 25%). </div>
+After analyzing the data, the men's weighted median was found to be higher in the overall sample and in every displayed education, age, and selected occupation group. This was nothing new, as some degree of wage gap between gender inequality was, truthfully, to be expected. However, the size of the difference does notably change per group: education gaps are about 26.9%–33.3%, age-group dollar gaps are about $8,122–$18,275, and selected occupations range from about 4.5% to 51.9%. Additionally, the full time/year round comparison was found to be smaller than the overall comparison (16.9% vs 25%).
 
 ## Limitations, ethics, and reflection
 
@@ -154,13 +157,13 @@ When I started this project, I had assumed that the dataset should be more than 
 
 Several limits affect how much can be concluded. First, these results depend on self reported survey data and a person level sample. This can mean that the data could have been susceptible to certain survey biases. Additionally, the analysis uses `PWGTP` for weighted estimates but does not calculate margins of error with the PUMS replicate weights. `WAGP` also excludes self-employment income and benefits. Annual earnings reflect both pay rates and time worked. The occupation codes combine people with different job duties, schedules, and seniority; and direct career experience, which are not controlled for in the core charts. So to summarize, there are many factors that can potentially be impacting the data and the findings that we might not know about and are difficult to control. So, the results should not be used to judge individuals or claim that any group’s earnings reflect ability or effort.
 
-I would not say there really was a limitation that personally surprised me or changed the way I read a chart. If I were to do a follow-up analysis of this, I would probably try to include industry into the equation. Something interesting to note that definitely could matter is that two people who have the same occupation don't necessarily work in the same industry. I think that's another detail we can use and it could definitely have some useful real world implications. I could see it being helpful data to gather to raise awareness regarding gender disparities in certain industries. It could be very helpful for young women who seek to enter certain industries. </div>
+I would not say there really was a limitation that personally surprised me or changed the way I read a chart. If I were to do a follow-up analysis of this, I would probably try to include industry into the equation. Something interesting to note that definitely could matter is that two people who have the same occupation don't necessarily work in the same industry. I think that's another detail we can use and it could definitely have some useful real world implications. I could see it being helpful data to gather to raise awareness regarding gender disparities in certain industries. It could be very helpful for young women who seek to enter certain industries.
 
 ## Code and transparency
 
 The full analysis is in the [2024 ACS PUMS Jupyter notebook](https://github.com/nreddi2/data-science-portfolio/blob/main/analysis/wage_income_acs_2024.ipynb). The [summary tables and filter audit](https://github.com/nreddi2/data-science-portfolio/tree/main/analysis/results) let readers check the numbers behind the figures. The public [GitHub repository](https://github.com/nreddi2/data-science-portfolio) contains this page, the charts, and the resume.
 
-AI (GPT Terra 5.6) was utilized in this project. AI provided guidance for the visualizations, aided in cleaning data, and also used to check and locate syntax errors in my code. It also helped with the formatting of my information and making the data look more presentable.</div>
+AI (GPT Terra 5.6) was utilized in this project. AI provided guidance for the visualizations, aided in cleaning data, and also used to check and locate syntax errors in my code. It also helped with the formatting of my information and making the data look more presentable.
 
 ## References
 
