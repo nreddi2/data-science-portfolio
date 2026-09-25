@@ -78,7 +78,7 @@ These filters left 41,436 records for the main analysis and excluded 72,834 down
 
 <div class="draft-prompt"> I then created the income measure used in the charts by multiplying WAGP by an income adjustment factor. This had to be done so that the income amounts are put on one common price scale. The ACS asks people about income over the past 12 months throughout the year, so some answers include income from 2023 as well as 2024. The Census provides ADJINC to adjust those amounts to a consistent 2024 scale. </div>
 
-In the API response examined for this project, the factor appeared as a decimal multiplier such as 1.015250; the Census bulk file documentation represents the equivalent factor as 1015250, with six implied decimal places. An earlier calculation divided the already decimal value again and produced implausibly small incomes. This was a problem I had to tackle, so I chose to check the factor’s scale, then calculates wage_2024 = WAGP × income_adjustment. The Census definitions of WAGP and ADJINC explain the adjustment.
+In the API response examined for this project, the factor appeared as a decimal multiplier such as 1.015250; the Census bulk file documentation represents the equivalent factor as 1015250, with six implied decimal places. An earlier calculation divided the already decimal value again and produced implausibly small incomes. This was a problem I had to tackle, so I chose to check the factor’s scale, then calculate wage_2024 with the following code. (The Census definitions of WAGP and ADJINC explain the adjustment)
 
 ```python
 df["wage_2024"] = df["WAGP"] * df["income_adjustment"]
