@@ -26,9 +26,9 @@ The gender pay/wage gap has been a long standing gender inequality historically.
 
 The data comes from the U.S. Census Bureau’s [2024 ACS 1-Year PUMS API](https://api.census.gov/data/2024/acs/acs1/pums.html). Since I decided to narrow the results for North Carolina residents, the data was queried for North Carolina (`state:37`). Each row is one sampled person. It should be noted that PUMS is a survey sample, so it is not a complete list of employee payroll records. [2024 PUMS data dictionary](https://www2.census.gov/programs-surveys/acs/tech_docs/pums/data_dict/PUMS_Data_Dictionary_2024.pdf) defines each variable and its codes.
 
-The dataset contains 114,270 unweighted North Carolina person records. That number is the size of the downloaded sample, not the number of North Carolina residents. So after the age and positive-wage restrictions (that will be further expanded on in the next section), **41,436 records** remain. I use the Census person weight `PWGTP` to calculate medians intended to describe people rather than treating every sampled record as equally representative. The record counts shown beside my charts are still unweighted counts.
+The dataset contains 114,270 unweighted North Carolina person records. That number is the size of the downloaded sample, not the number of North Carolina residents. So after the age and positive wage restrictions (that will be further expanded on in the next section), **41,436 records** remain. I use the Census person weight `PWGTP` to calculate medians intended to describe people rather than treating every sampled record as equally representative. The record counts shown beside my charts are still unweighted counts.
 
-“Unweighted” means this is the number of rows returned, not an estimate of the number of people living in North Carolina. After applying the age, sex-code, education-code, positive-wage, adjustment-factor, and survey-weight requirements described below, 41,436 records remained in the main analytic sample.
+“Unweighted” means this is the number of rows returned, not an estimate of the number of people living in North Carolina. After applying the age, sex code, education code, positive wage, adjustment factor, and survey weight requirements described below, 41,436 records remained in the main analytic sample.
 
 | Detail | Value |
 |:--|:--|
