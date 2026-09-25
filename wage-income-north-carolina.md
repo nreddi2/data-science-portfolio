@@ -54,7 +54,7 @@ The dataset contains 114,270 unweighted North Carolina person records. That numb
 
 ## Data cleaning and preparation
 
-
+To start my preparation of the data, I started by requesting the selected person-level fields from the 2024 ACS PUMS API for North Carolina, loading the response into a pandas DataFrame. I saved the 114270 downloaded records as a raw .csv file.
 
 The notebook (linked at the end) shows the API request, missing value counts, a filter log, the income adjustment, and the group summaries. The analytic sample keeps records with ages 25–64, positive wage income, valid education and sex codes, a positive person weight, and a positive income adjustment factor.
 
