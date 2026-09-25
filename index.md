@@ -15,6 +15,8 @@ page_class: home-page
   <h2 id="about-title">About me</h2>
   <p>Hey there, I'm Neelesh Reddi! I am currently a third-year student at University of North Carolina at Charlotte, majoring in Data Science and minoring in Software Development. Welcome to my personal portfolio. Here I will document all of my learning and coding projects; past, present, and future! Feel free to check out any of my blog posts, or look through my projects!</p>
   <p>I am really interested in working with machine learning and AI. I am passionate about learning new things, and in the future I want to be able to apply data driven thinking to real problems. I'm especially drawn to natural language processing and the challenge of turning unstructured data into something useful.
+    In the past I have worked on projects where explaining an idea mattered as much as building it. I cofounded a nonprofit organization known as Data4Youth. I helped introduce data science to younger students and worked on the organization’s website. My mobile app work gave me a different kind of practice building features, testing them, and fixing what didn’t work.
+However, I’m especially interested in natural language processing. In the future I want to build tools that help people find their way through complicated information, without hiding the uncertainty or mistakes that come with working with real data. That mix of problem-solving and clear communication is what keeps me interested in this field.
   </p>
 </section>
 
