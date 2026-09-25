@@ -39,7 +39,7 @@ The dataset contains 114,270 unweighted North Carolina person records. That numb
 | Rows after filters | 41,436 |
 | Missing values in API response | 46,413 each in `OCCP` and `INDP`; zero blanks in the other requested fields |
 
-| Concept | Census field | Operational definition in this project |
+| Dataset feature (column) | Census field | Operational definition in this project |
 |:--|:--|:--|
 | Reported sex | `SEX` | Census categories 1 and 2, displayed as men and women. This is not a direct measure of gender identity. |
 | Annual wage income | `WAGP` + `ADJINC` | Wage and salary income in the prior 12 months, adjusted to constant 2024 dollars. The API returned `ADJINC` as a decimal multiplier (1.015250); the Census bulk CSV expresses the same factor with six implied decimal places (1015250). |
@@ -50,7 +50,7 @@ The dataset contains 114,270 unweighted North Carolina person records. That numb
 | Industry | `INDP` | Downloaded for context but not analyzed in the current research question. |
 | Survey weight | `PWGTP` | Person weight for weighted descriptive estimates. |
 
-* The ACS does not provide a direct measure of **years of work experience**. Age is not a substitute for experience.
+The features in my downloaded dataset are the columns I requested from the API: age (AGEP), reported sex (SEX), wage and salary income (WAGP), the income adjustment factor (ADJINC), education (SCHL), occupation (OCCP), industry (INDP), usual weekly hours (WKHP), weeks worked (WKWN), and person survey weight (PWGTP). Each row contains these values for one sampled person. During cleaning, I also created new columns—including adjusted wage income (wage_2024), education group, and age group—from the original features. The dataset does not have a feature that directly measures years of work experience.
 
 ## Data cleaning and preparation
 
