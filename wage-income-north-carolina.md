@@ -58,11 +58,13 @@ To start my preparation of the data, I started by requesting the selected person
 
 The notebook (linked at the end) shows the API request, missing value counts, a filter log, the income adjustment, and the group summaries. The analytic sample keeps records with ages 25–64, positive wage income, valid education and sex codes, a positive person weight, and a positive income adjustment factor.
 
-```python
-df["wage_2024"] = df["WAGP"] * df["income_adjustment"]
-```
+
 
 The notebook creates `income_adjustment` after checking whether `ADJINC` arrived as a decimal multiplier or with six implied decimal places. This follows the Census documentation for [`WAGP`](https://api.census.gov/data/2024/acs/acs1/pums/variables/WAGP.json) and [`ADJINC`](https://api.census.gov/data/2024/acs/acs1/pums/variables/ADJINC.json). An initial API run applied the bulk-CSV scale to an already-decimal API value and produced dollar amounts near zero. Comparing a raw API row with the official bulk file exposed that error; the corrected notebook now checks the scale before calculating income. The four charts below were regenerated from the corrected data, not taken from that initial output.
+
+Next, I prepared the fields for analysis. The API returned values as text, so I used pandas to convert age, wage income, education and sex codes, hours worked, weeks worked, the income adjustment factor, and the person weight into numeric values. I treated empty strings and the inapplicable value N in the occupation and industry fields as missing. I then counted missing values before filtering the data. OCCP and INDP each had 46,413 missing or inapplicable entries; the other requested fields had no blank entries in this check. A zero is not the same as a blank, though. For example, a person can have WAGP recorded as zero because they had no wage income.
+
+After inspecting those values, I applied my sample rules one at a time and recorded the number of rows each rule removed:
 
 | Cleaning step | Records remaining | Removed at step |
 |:--|--:|--:|
@@ -72,7 +74,19 @@ The notebook creates `income_adjustment` after checking whether `ADJINC` arrived
 | Keep positive `WAGP` | 41,436 | 14,097 |
 | Keep positive `ADJINC` and `PWGTP` | 41,436 | 0 |
 
-The API represents some inapplicable numeric fields as zero rather than blank. Thus, the zero blank counts for `WAGP`, `WKHP`, and `WKWN` do **not** mean every respondent worked or had wage income. The 46,413 blank occupation and industry entries are preserved as missing; these fields are used only for the selected-occupation comparison. The core sample excludes 72,834 records in total. A lot of these omissions were from the age restriction, but also from filtering the wages. Positive wages were specifically filtered for so that any adults who do not work or gets their income from other sources would not be accounted for.
+These filters left 41,436 records for the main analysis and excluded 72,834 downloaded records. The age restriction focuses the project on the range named in my research question. The positive-wage restriction means I compare people who reported wage and salary income, rather than mixing their income values with those of people who had no wages. It also limits my conclusion: the results do not describe all North Carolina adults. I did not remove everyone with a missing occupation or industry, because I did not need those fields for the overall, education, or age comparisons. I used occupation only for the selected-occupation figure.
+
+<div class="draft-prompt"> I then created the income measure used in the charts by multiplying WAGP by an income adjustment factor. This had to be done so that the income amounts are put on one common price scale. The ACS asks people about income over the past 12 months throughout the year, so some answers include income from 2023 as well as 2024. The Census provides ADJINC to adjust those amounts to a consistent 2024 scale. <div>
+
+In the API response examined for this project, the factor appeared as a decimal multiplier such as 1.015250; the Census bulk file documentation represents the equivalent factor as 1015250, with six implied decimal places. An earlier calculation divided the already decimal value again and produced implausibly small incomes. This was a problem I had to tackle, so I chose to check the factor’s scale, then calculates wage_2024 = WAGP × income_adjustment. The Census definitions of WAGP and ADJINC explain the adjustment.
+
+```python
+df["wage_2024"] = df["WAGP"] * df["income_adjustment"]
+```
+
+The API represents some inapplicable numeric fields as zero rather than blank. Therefore the zero blank counts for `WAGP`, `WKHP`, and `WKWN` do not actually mean every respondent worked or had wage income. The 46,413 blank occupation and industry entries are preserved as missing; these fields are used only for the selected occupation comparison. The core sample excludes 72,834 records in total. A lot of these omissions were from the age restriction, but also from filtering the wages. Positive wages were specifically filtered for so that any adults who do not work or gets their income from other sources would not be accounted for.
+
+Finally, I replaced Census number codes with readable labels. I put education into four groups and ages into four ten-year groups. I saved the cleaned data and a list showing how many records each step removed, so I could check how I reached my final results.
 
 ## Data understanding and visualizations
 
