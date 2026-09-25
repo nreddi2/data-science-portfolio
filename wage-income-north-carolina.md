@@ -50,7 +50,7 @@ The dataset contains 114,270 unweighted North Carolina person records. That numb
 | Industry | `INDP` | Downloaded for context but not analyzed in the current research question. |
 | Survey weight | `PWGTP` | Person weight for weighted descriptive estimates. |
 
-The features in my downloaded dataset are the columns I requested from the API: age (AGEP), reported sex (SEX), wage and salary income (WAGP), the income adjustment factor (ADJINC), education (SCHL), occupation (OCCP), industry (INDP), usual weekly hours (WKHP), weeks worked (WKWN), and person survey weight (PWGTP). Each row contains these values for one sampled person. During cleaning, I also created new columns—including adjusted wage income (wage_2024), education group, and age group—from the original features. The dataset does not have a feature that directly measures years of work experience.
+The features in my downloaded dataset are the columns I requested from the API: age (AGEP), reported sex (SEX), wage and salary income (WAGP), the income adjustment factor (ADJINC), education (SCHL), occupation (OCCP), industry (INDP), usual weekly hours (WKHP), weeks worked (WKWN), and person survey weight (PWGTP). Each row contains these values for one sampled person. During cleaning, I also created new columns, including adjusted wage income (wage_2024), education group, and age group, from the original features. The dataset does not have a feature that directly measures years of work experience.
 
 ## Data cleaning and preparation
 
