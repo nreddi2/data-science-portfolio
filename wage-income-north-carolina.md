@@ -159,7 +159,8 @@ The notebook repeats the overall comparison for respondents who reported at leas
 
 In this restricted group, the weighted medians are $65,991.25 for men (17,382 records) and $54,823.50 for women (14,459 records). The difference between medians is $11,167.75, or 16.9% of the men's median.
 
-Compare the 16.9% restricted-group gap with the 25.0% overall gap. Say what this change might suggest and what it still cannot explain.
+The change tells me that the result is sensitive to who is included when I consider reported work time. I cannot necessarily conclude that working time caused the full change from 25.0% to 16.9%. Applying the restriction also selects a different set of people, who may differ in occupation, seniority, job duties, and other characteristics. The calculation still uses annual income rather than a direct hourly wage. I decided to present this check so that the interpretation is more careful, not to claim that I have fully explained the overall difference.
+
 
 ## Storytelling and interpretation
 
