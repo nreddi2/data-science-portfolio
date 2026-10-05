@@ -97,7 +97,7 @@ For example, a `300+3` time control gives each player 300 starting seconds and a
 
 The saved sample has **30,000 rows and 14 metadata columns**. After cleaning, it has **29,792 games**. The model uses five engineered numerical inputs, not all metadata columns.
 
-After removing tagged bots and an unfinished result, both rating columns and the timestamp have **zero missing or invalid values**. Seventeen remaining correspondence games have `-` instead of a timed `base+increment` control. Both parsed clock fields are therefore missing in those same 17 rows—not 34 separate games. I exclude those games because this analysis compares timed games. I do not impute clock settings or ratings.
+After removing tagged bots and an unfinished result, both rating columns and the timestamp have **zero missing or invalid values**. Seventeen remaining correspondence games have `-` instead of a timed `base+increment` control. Both parsed clock fields are therefore missing in those same 17 rows (not 34 separate games). I exclude those games because this analysis compares timed games. I do not impute clock settings or ratings.
 
 Blank title fields normally indicate that no title was recorded. I do not delete a game simply because the players lack titles. The [missing-value table](https://github.com/nreddi2/data-science-portfolio/blob/main/analysis/chess/results/missing_values.csv) reports the exact stage of the check, and the cleaning log below accounts for every excluded row.
 
@@ -150,9 +150,9 @@ These comparisons motivate the rating-level and clock inputs alongside the signe
 
 ### Step 1: check eligibility and account for exclusions
 
-I first check game IDs and duplicates. A duplicate means a repeated game ID, not two games that happen to share the same ratings. I then check the variant and explicitly casual event labels. The source is already a rated-game archive; I do not require the word “Rated” in every event name, because some Swiss tournaments omit it.
+I first checked game IDs and duplicates. A duplicate refers to a repeated game ID here, so two games that happen to share the same ratings are not considered duplicates. I then checked the variant and explicitly casual event labels. The source is already a rated-game archive; I do not require the word “Rated” in every event name, because some Swiss tournaments omit it.
 
-Next, I remove games where either title equals `BOT`, remove the one unfinished result, and parse the ratings, timestamps, and clocks. A missing BOT tag does not prove that a player never used outside assistance; it only means this filter did not identify a registered bot account.
+Next, I removed games where either title equals `BOT`, remove the one unfinished result, and parse the ratings, timestamps, and clocks. A missing BOT tag does not prove that a player never used outside assistance; it only means this filter did not identify a registered bot account.
 
 | Sequential check | Games removed | Games remaining |
 |---|---:|---:|
