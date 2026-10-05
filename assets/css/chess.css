@@ -1,0 +1,45 @@
+.chess-page { max-width: 1060px; }
+.chess-project { max-width: 900px; }
+.chess-project h1 { max-width: 18ch; }
+.chess-project .chess-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+.chess-summary div {
+  padding: 1rem 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--teal);
+  border-radius: 8px;
+}
+.chess-summary strong { display: block; font-size: 1.8rem; color: var(--teal); }
+.chess-summary span { font-size: .9rem; color: var(--muted); }
+.chess-toc {
+  background: var(--surface-warm);
+  border-radius: 8px;
+  padding: 1rem 1.4rem;
+  margin: 2rem 0;
+}
+.chess-toc ol { columns: 2; padding-left: 1.2rem; margin-bottom: .3rem; }
+.chess-toc li { break-inside: avoid; padding: .2rem 0; }
+.chess-project h2 { scroll-margin-top: 1rem; }
+.chess-project .finding {
+  padding: 1rem 1.25rem;
+  background: #edf3ee;
+  border-left: 4px solid var(--teal);
+  border-radius: 0 8px 8px 0;
+}
+.chess-project .caution { border-left-color: var(--terracotta); background: #faf0e8; }
+.chess-project figure a { display: block; }
+.chess-project .data-note { font-size: .9rem; color: var(--muted); }
+.chess-project table { font-size: .9rem; }
+.chess-project details { padding: .8rem 1rem; border: 1px solid var(--line); border-radius: 8px; margin: 1.2rem 0; }
+.chess-project summary { cursor: pointer; color: var(--teal); font-weight: 650; }
+.chess-project .references { overflow-wrap: anywhere; }
+@media (max-width: 650px) {
+  .chess-project .chess-summary { grid-template-columns: 1fr; gap: .6rem; }
+  .chess-summary strong { font-size: 1.5rem; }
+  .chess-toc ol { columns: 1; }
+}

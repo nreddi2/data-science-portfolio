@@ -1,0 +1,37 @@
+{
+  "raw_rows": 30000,
+  "clean_rows": 29792,
+  "train_rows": 23833,
+  "test_rows": 5959,
+  "start": "2026-09-01 00:00:00+00:00",
+  "end": "2026-09-01 04:13:48+00:00",
+  "train_end": "2026-09-01 03:21:18+00:00",
+  "test_start": "2026-09-01 03:21:19+00:00",
+  "selected_model": "Logistic (ordinary)",
+  "test_seen_player_share": 0.4588018123846283,
+  "unseen_test_games": 3225,
+  "unseen_macro_f1": 0.3453792708252746,
+  "wide_gap_games": 22,
+  "rating_min": 400.0,
+  "rating_max": 3211.0,
+  "features": [
+    "elo_diff",
+    "abs_elo_diff",
+    "average_rating",
+    "log_base_seconds",
+    "log_increment_seconds"
+  ],
+  "seed": 2301,
+  "python": "3.12.14",
+  "packages": {
+    "numpy": "2.5.3",
+    "pandas": "3.0.6",
+    "matplotlib": "3.11.2",
+    "scikit-learn": "1.9.1",
+    "requests": "2.34.2",
+    "zstandard": "0.25.0",
+    "nbformat": "5.11.1",
+    "nbclient": "0.11.0",
+    "ipykernel": "7.4.0"
+  }
+}

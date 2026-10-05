@@ -1,0 +1,15 @@
+model,parameters,cv_macro_f1,cv_f1_sd,cv_log_loss
+Logistic (ordinary),{'logisticregression__C': 0.1},0.3576261313935131,0.0014128595285209174,0.803421623500142
+Logistic (ordinary),{'logisticregression__C': 1},0.35764701276452454,0.0012607387857703717,0.803419251302859
+Logistic (ordinary),{'logisticregression__C': 10},0.35764701276452454,0.0012607387857703717,0.8034191218569974
+Forest (ordinary),"{'randomforestclassifier__max_depth': 8, 'randomforestclassifier__min_samples_leaf': 5}",0.35481958543801556,0.0029122914517235874,0.8066501638902178
+Forest (ordinary),"{'randomforestclassifier__max_depth': 8, 'randomforestclassifier__min_samples_leaf': 25}",0.3539117493038893,0.0015482627242925763,0.8057823581501692
+Forest (ordinary),"{'randomforestclassifier__max_depth': 16, 'randomforestclassifier__min_samples_leaf': 5}",0.3524434019290077,0.0020099186697368375,0.8218918443346398
+Forest (ordinary),"{'randomforestclassifier__max_depth': 16, 'randomforestclassifier__min_samples_leaf': 25}",0.3551398375526555,0.0012222624494464286,0.8100343320317179
+Logistic (balanced),{'logisticregression__C': 0.1},0.3194215659494099,0.0012974196737358295,1.0797266913972716
+Logistic (balanced),{'logisticregression__C': 1},0.31980898256988616,0.0012936821722323174,1.0797262520045585
+Logistic (balanced),{'logisticregression__C': 10},0.3197663812771868,0.0012338279970925872,1.0797262564163306
+Forest (balanced),"{'randomforestclassifier__max_depth': 8, 'randomforestclassifier__min_samples_leaf': 5}",0.3227787832918252,0.006184544982220094,1.0423952696555112
+Forest (balanced),"{'randomforestclassifier__max_depth': 8, 'randomforestclassifier__min_samples_leaf': 25}",0.3180541257492861,0.006532566176633127,1.0500369025199807
+Forest (balanced),"{'randomforestclassifier__max_depth': 16, 'randomforestclassifier__min_samples_leaf': 5}",0.3523255882375684,0.005598182644072904,0.9695699504241097
+Forest (balanced),"{'randomforestclassifier__max_depth': 16, 'randomforestclassifier__min_samples_leaf': 25}",0.3329322253629326,0.004409219845894747,1.0181887472892148

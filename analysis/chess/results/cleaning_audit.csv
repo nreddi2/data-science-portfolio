@@ -1,0 +1,9 @@
+step,removed,remaining
+Missing game ID,0,30000
+Duplicate game ID,0,30000
+Nonstandard or explicitly casual game,0,30000
+Tagged bot account,190,29810
+Unfinished or unrecognized result,1,29809
+Missing or invalid required field,17,29792
+Nonpositive rating,0,29792
+Zero clock and zero increment,0,29792

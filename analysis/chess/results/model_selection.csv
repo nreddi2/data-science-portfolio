@@ -1,0 +1,5 @@
+model,cv_macro_f1,cv_log_loss,parameters
+Logistic (ordinary),0.35764701276452454,0.803419251302859,{'logisticregression__C': 1}
+Forest (ordinary),0.3551398375526555,0.8100343320317179,"{'randomforestclassifier__max_depth': 16, 'randomforestclassifier__min_samples_leaf': 25}"
+Forest (balanced),0.3523255882375684,0.9695699504241097,"{'randomforestclassifier__max_depth': 16, 'randomforestclassifier__min_samples_leaf': 5}"
+Logistic (balanced),0.31980898256988616,1.0797262520045585,{'logisticregression__C': 1}

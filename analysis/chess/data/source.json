@@ -1,0 +1,12 @@
+{
+  "source": "https://database.lichess.org/standard/lichess_db_standard_rated_2026-09.pgn.zst",
+  "source_page": "https://database.lichess.org/",
+  "license": "CC0",
+  "retrieved_utc": "2026-10-05T17:11:33.020473+00:00",
+  "sampling": "Every tenth complete PGN header block among the first 300000, before filtering. A systematic sample of an archive prefix, not a random sample of the month.",
+  "source_headers_scanned": 300000,
+  "raw_rows": 30000,
+  "sha256": "b280af06ae274fe03b3d963d0bfac7ca3c8ff427344a87af5a47f13137cb68ae",
+  "privacy": "Player names replaced with within-sample IDs; game URLs replaced with hashes. These are pseudonyms, not a guarantee of anonymity.",
+  "exclusions_at_collection": "Moves, opening, ECO, termination, rating changes, and original player names were not saved."
+}

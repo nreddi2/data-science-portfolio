@@ -1,0 +1,6 @@
+model,score_mse
+Elo-style reference,0.2359144927164276
+Logistic (ordinary),0.23442254564902912
+Forest (ordinary),0.23664900517721346
+Logistic (balanced),0.23546015625118982
+Forest (balanced),0.23803532810997294
