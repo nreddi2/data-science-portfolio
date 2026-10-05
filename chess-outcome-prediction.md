@@ -23,9 +23,9 @@ Before a chess game starts, the higher rated player seems like the obvious choic
 </div>
 
 <div class="chess-summary">
-  <div><strong>29,792</strong><span>usable games in a bounded sample</span></div>
-  <div><strong>3 outcomes</strong><span>White win, draw, Black win</span></div>
-  <div><strong>0 of 217</strong><span>test draws found by the selected model</span></div>
+  <div><strong>29,792 </strong><span>usable games in a bounded sample</span></div>
+  <div><strong>3 outcomes </strong><span>White win, draw, Black win</span></div>
+  <div><strong>0 of 217 </strong><span>test draws found by the selected model</span></div>
 </div>
 
 <p class="finding caution"><strong>Main finding:</strong> The selected logistic model slightly improved accuracy over the higher-rated-player rule, but the rule achieved better macro-F1. Class balancing found more draws at the cost of many false draw predictions. This is a limited experiment, not a successful draw-prediction system.</p>
@@ -48,37 +48,35 @@ Before a chess game starts, the higher rated player seems like the obvious choic
 
 <h2 id="problem">1. Problem definition</h2>
 
-**Research question:** How well can pre-game player ratings and time controls predict a White win, a draw, or a Black win in a bounded sample of rated standard Lichess games?
+**Research question:** How well can pre-game player ratings and time controls predict a White win, a draw, or a Black win in a game of chess?
 
 I treat this as **multiclass classification**. The target is the final recorded result: `1-0` for a White win, `1/2-1/2` for a draw, or `0-1` for a Black win. I use “White” and “Black” only to describe the pieces each player controls.
 
-I also ask whether draws occur more often in closely matched games, among stronger players, or in slower formats. These are hypotheses to test—not facts I assume before seeing the data. Removing draws would turn the task into a simpler question and hide an important weakness of a winner-only prediction rule.
+I also wanted to see whether draws occur more often in closely matched games, among stronger players, or in slower formats. These are hypotheses that I wanted to test, to hopefully see an improvement or variation between different formats of games. Removing draws would turn the task into a simpler question and hide an important weakness of a winner only prediction rule.
 
-This question could interest players or developers who want a pre-game probability display. It does not require an engine to inspect the position. That makes the prediction inexpensive, but it also limits what the model can know: before the first move, it cannot see a blunder, a repetition, or a player's decision to accept a draw.
+This question could potentially interest players or developers who want a pre-game probability display. It does not require an engine to inspect the position. That makes the prediction inexpensive, but it also limits what the model can know: before the first move, it cannot see a blunder, a repetition, or a player's decision to accept a draw.
 
 <h2 id="background">2. Background and context</h2>
 
-Chess ratings summarize past performance, not certainty about the next game. Lichess uses **Glicko-2**, even though its game files label ratings `WhiteElo` and `BlackElo` (Lichess, n.d.-a). Glicko-2 also tracks rating deviation and volatility. The two published rating numbers alone leave out that uncertainty (Glickman, 2022). These ratings should not be treated as directly interchangeable with ratings from another chess platform.
+Chess ratings summarize past performance, not certainty about the next game. Lichess, as well as the majority of chess websites, uses the Glicko-2 rating system (although its game files label ratings WhiteElo and BlackElo). Glicko-2 also tracks rating deviation and volatility. The two published rating numbers alone leave out that uncertainty (Glickman, 2022). These ratings should not be treated as directly interchangeable with ratings from another chess platform.
 
-A draw is also different from a 50% probability of winning. It is a separate outcome. For expected-score comparisons, a White win counts as 1, a draw as 0.5, and a Black win as 0. Keeping separate outcome probabilities lets me distinguish a likely draw from an uncertain game that could end in either player's favor.
+It should be noted that a draw is also different from a 50% probability of winning. It is a separate outcome. For expected score comparisons, a White win will count as 1, a draw as 0.5, and a Black win as 0. Keeping separate outcome probabilities lets me distinguish a likely draw from an uncertain game that could end in either player's favor.
 
-The two model families offer a useful contrast. Multinomial logistic regression assigns probabilities using a linear combination of the inputs. A random forest combines decision trees and can represent nonlinear relationships and interactions (Breiman, 2001). Neither model receives the moves. I therefore ask what a few pre-game conditions can explain, rather than expect either model to understand chess positions.
-
-Sources: [Lichess rating systems](https://lichess.org/page/rating-systems), [Glickman's Glicko-2 explanation](https://www.glicko.net/glicko/glicko2.pdf), and [Breiman's random forests paper](https://doi.org/10.1023/A:1010933404324). Full APA references appear below.
+The two model families here offer a useful contrast. Multinomial logistic regression assigns probabilities using a linear combination of the inputs. A random forest combines decision trees and can represent nonlinear relationships and interactions (Breiman, 2001). Neither model receives the moves. I therefore ask what a few pre-game conditions can explain, rather than expect either model to understand chess positions.
 
 <h2 id="data">3. Data description</h2>
 
 ### Source, collection, and unit of analysis
 
-I use the **September 2026 rated standard-game archive** from the [Lichess open database](https://database.lichess.org/), which releases its exports under CC0 (Lichess, n.d.-c). This is a direct public archive download, not a scrape of individual player pages. It needs no account or API key.
+I use the **September 2026 rated standard-game archive** from the [Lichess open database](https://database.lichess.org/), which releases its exports under CC0 (Lichess, n.d.-c). This is a direct public archive download as opposed to a web scrape. It does not require an account or API key.
 
-The full monthly archive is much larger than this classroom experiment needs. The collector streams it, reads the first 300,000 game headers, and retains every tenth header. That produces **30,000 sampled rows before cleaning**. It selects rows before checking results, so it does not intentionally overrepresent wins or draws. It does **not** create a random sample of the entire month. A fixed sampling interval can also interact with archive ordering.
+The full monthly archive is much larger than I figured would be necessary to train the model. I decided to take a systematic sample of the dataset in order to effectively utilize this data. The collector streams it, reads the first 300,000 game headers, and retains every tenth header. That produces **30,000 sampled rows before cleaning**. It selects rows before checking results, so it does not intentionally overrepresent wins or draws. A fixed sampling interval can also interact with archive ordering.
 
-Each row represents **one game**, not one player, one move, or one board position. The retained games started between **September 1, 2026, 00:00:00 and 04:13:48 UTC**. This approximately four-hour window is a major limit on the conclusions. The download ran on October 5, 2026. The [source record](https://github.com/nreddi2/data-science-portfolio/blob/main/analysis/chess/data/source.json) preserves the URL, sampling rule, retrieval time, and file checksum.
+Each row represents **one game**, not one player, one move, or one board position. The retained games started between **September 1, 2026, 00:00:00 and 04:13:48 UTC**. This approximately four-hour window is a major limit on the conclusions. The [source record](https://github.com/nreddi2/data-science-portfolio/blob/main/analysis/chess/data/source.json) preserves the URL, sampling rule, retrieval time, and file checksum.
 
 ### Features: what the columns measure
 
-I distinguish the ideas I want to study from the columns I use to measure them. “Relative playing strength” is a concept; a difference between two pre-game ratings is its numerical measurement. The table shows both the original information and the engineered inputs.
+I distinguished the ideas I want to study from the columns I use to measure them. “Relative playing strength” is a concept; a difference between two pre-game ratings is its numerical measurement. The table shows both the original information and the engineered inputs.
 
 | Concept | Source columns or saved field | Operational definition and role |
 |---|---|---|
@@ -358,7 +356,7 @@ The normal rerun reads the included CSV, so it needs no API key and does not rep
 
 ### AI usage and disclosure
 
-I used AI (GPT Terra 5.6) as a utility in this project. The assistance covered research planning, data collection and analysis code, debugging, guidance on producing charts, and formatting as well as organizing this page.
+I used AI (GPT Terra 5.6) as a utility in this project. The assistance covered research planning, data collection and analysis code, debugging, guidance on producing charts, citations, and the overall formatting and organization of this page.
 
 The analysis generated the numerical results by executing code against the saved Lichess data. The development process checked exclusions, split boundaries, model outputs, and charts, including correcting a filter that would have wrongly excluded Swiss-tournament games. This disclosure does not claim that I personally reviewed every line.
 
