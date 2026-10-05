@@ -11,11 +11,11 @@ extra_css: /assets/css/chess.css
 
 <span class="eyebrow">DTSC 2301 · Project 2 · Classification</span>
 
-# Before the first move
+# Predicting a Chess game before the first move
 
 <p class="lede">Ratings tell us who looks stronger. Can they also tell us when neither player will win?</p>
 
-Before a chess game starts, the higher-rated player seems like the obvious choice. A draw complicates that shortcut. I kept draws in this project and tested whether ratings and time controls could distinguish all three outcomes. The models found some useful patterns, but they struggled to turn those patterns into reliable draw predictions.
+Before a chess game starts, the higher rated player seems like the obvious choice. I wanted to see if I could potentially challenge this presumption and make a machine learning model that can predict the outcome of a game; win, loss, or draw. Although it would have been a lot more straightforward for me to exclude the draw outcome of the game in my model, I kept draws in this project and tested whether ratings and time controls could distinguish all three outcomes. The models found some useful patterns, but they struggled to turn those patterns into reliable draw predictions.
 
 <div class="hero-actions">
   <a class="button" href="https://github.com/nreddi2/data-science-portfolio/blob/main/analysis/chess/chess_outcomes.ipynb">Read the executed notebook</a>
@@ -356,11 +356,11 @@ The [executed notebook](https://github.com/nreddi2/data-science-portfolio/blob/m
 
 The normal rerun reads the included CSV, so it needs no API key and does not repeat the archive download. See the [reproduction instructions](https://github.com/nreddi2/data-science-portfolio/blob/main/analysis/chess/README.md). All numerical results on this page come from the saved run, not estimates read from chart heights. Rounded values may differ slightly from the full-precision CSVs.
 
-### AI usage disclosure
+### AI usage and disclosure
 
-I used **OpenAI Codex with GPT-6 Astra**, the model name confirmed in the app's selector. The assistance covered research planning, source checking, data-collection and analysis code, debugging, running the analysis, producing charts, interpreting outputs, drafting this page, and integrating the files into the portfolio. This was **substantive assistance**, not just grammar correction or formatting.
+I used AI (GPT Terra 5.6) as a utility in this project. The assistance covered research planning, data collection and analysis code, debugging, guidance on producing charts, and formatting as well as organizing this page.
 
-The analysis generated the numerical results by executing code against the saved Lichess data. The development process checked exclusions, split boundaries, model outputs, and charts, including correcting a filter that would have wrongly excluded Swiss-tournament games. This disclosure does not claim that I independently wrote the code or personally reviewed every line. I remain responsible for the submission and for following the course's AI policy.
+The analysis generated the numerical results by executing code against the saved Lichess data. The development process checked exclusions, split boundaries, model outputs, and charts, including correcting a filter that would have wrongly excluded Swiss-tournament games. This disclosure does not claim that I personally reviewed every line.
 
 ### References
 
