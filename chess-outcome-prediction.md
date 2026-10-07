@@ -76,7 +76,7 @@ Each row represents **one game**, not one player, one move, or one board positio
 
 ### Features: what the columns measure
 
-I distinguished the ideas I want to study from the columns I use to measure them. “Relative playing strength” is a concept; a difference between two pre-game ratings is its numerical measurement. The table shows both the original information and the engineered inputs.
+I kept separate the ideas I want to study from the columns I use to measure them. “Relative playing strength” is a concept which refers to the difference between two pre-game ratings is its numerical measurement. The table shows the original info as well as the engineered inputs.
 
 | Concept | Source columns or saved field | Operational definition and role |
 |---|---|---|
@@ -97,9 +97,9 @@ For example, a `300+3` time control gives each player 300 starting seconds and a
 
 The saved sample has **30,000 rows and 14 metadata columns**. After cleaning, it has **29,792 games**. The model uses five engineered numerical inputs, not all metadata columns.
 
-After removing tagged bots and an unfinished result, both rating columns and the timestamp have **zero missing or invalid values**. Seventeen remaining correspondence games have `-` instead of a timed `base+increment` control. Both parsed clock fields are therefore missing in those same 17 rows (not 34 separate games). I exclude those games because this analysis compares timed games. I do not impute clock settings or ratings.
+After removing tagged bots and an unfinished result, both rating columns and the timestamp have **zero missing or invalid values**. However, 17 remaining correspondence games have `-` instead of a timed `base+increment` control. Both parsed clock fields are therefore missing in those same 17 rows (not 34 separate games). I decided it would make sense to exclude these games because this analysis compares timed games.
 
-Blank title fields normally indicate that no title was recorded. I do not delete a game simply because the players lack titles. The [missing-value table](https://github.com/nreddi2/data-science-portfolio/blob/main/analysis/chess/results/missing_values.csv) reports the exact stage of the check, and the cleaning log below accounts for every excluded row.
+Blank title fields normally indicate that no title was recorded. I did not ignore a game due to either players lacking titles. The [missing-value table](https://github.com/nreddi2/data-science-portfolio/blob/main/analysis/chess/results/missing_values.csv) reports the exact stage of the check, and the cleaning log below accounts for every excluded row.
 
 <h2 id="exploration">4. Data understanding and exploration</h2>
 
@@ -113,7 +113,7 @@ I reserve later games for testing before exploring relationships. The figures in
 | Draw | 839 | 3.5% | 217 |
 | Black win | 11,094 | 46.5% | 2,680 |
 
-Shares are rounded. Across training and test combined, the cleaned sample contains **1,056 draws**. The imbalance matters: a model can miss every draw and still get roughly half the games right. I therefore keep accuracy as context and emphasize macro-F1 and class-specific results.
+Shares are rounded. Across training and test combined, the cleaned sample contains **1,056 draws**. The imbalance matters: a model can miss every draw and still get roughly half the games right. I therefore kept accuracy as context and made sure to emphasize macro-F1 and class specific results.
 
 <figure>
   <a href="{{ '/assets/images/chess/01_class_balance.png' | relative_url }}"><img src="{{ '/assets/images/chess/01_class_balance.png' | relative_url }}" width="1460" height="848" alt="Training outcome shares: White wins 49.9 percent, draws 3.5 percent, and Black wins 46.5 percent." loading="lazy"></a>
@@ -124,7 +124,7 @@ Shares are rounded. Across training and test combined, the cleaned sample contai
 
 The median training rating gap is **1 point in White's favor**. The median absolute gap is **33 points**, and the middle half of absolute gaps lies between **13 and 71 points**. The average of the two players' ratings has a median of **1,662**. The full cleaned sample spans individual ratings from **400 to 3,211** and contains **22 games with gaps above 1,000 points**.
 
-I keep the large gaps rather than assume they are mistakes. They remain valid numerical ratings, and deleting them would remove the easiest-looking matchups. The histogram makes their rarity visible. The outcome chart shows a directional pattern: White wins more often when White has a large rating advantage, and less often when Black has the advantage. That does not imply most games are easy to predict, because most gaps cluster near zero.
+I keep the large gaps rather than assume they are mistakes. They remain valid numerical ratings, and deleting them would remove the easiest looking matchups. The histogram makes their rarity visible. The outcome chart shows a directional pattern: White wins more often when White has a large rating advantage, and less often when Black has the advantage. This inference was pretty expected from my prior knowledge and made a lot of sense intuitively speaking, but that does not imply most games are easy to predict, because most gaps cluster near zero.
 
 <figure>
   <a href="{{ '/assets/images/chess/02_rating_gap.png' | relative_url }}"><img src="{{ '/assets/images/chess/02_rating_gap.png' | relative_url }}" width="2180" height="884" alt="A histogram concentrates near a zero rating gap; grouped outcome bars show White's win share rising as White's rating advantage increases." loading="lazy"></a>
@@ -148,7 +148,7 @@ These comparisons motivate the rating-level and clock inputs alongside the signe
 
 <h2 id="preparation">5. Data preparation and feature selection</h2>
 
-### Step 1: check eligibility and account for exclusions
+### Step 1: Check eligibility and account for exclusions
 
 I first checked game IDs and duplicates. A duplicate refers to a repeated game ID here, so two games that happen to share the same ratings are not considered duplicates. I then checked the variant and explicitly casual event labels. The source is already a rated-game archive; I do not require the word “Rated” in every event name, because some Swiss tournaments omit it.
 
@@ -168,7 +168,7 @@ Next, I removed games where either title equals `BOT`, remove the one unfinished
 
 The counts are sequential, so no removed row appears twice. Zero starting seconds can still be valid when there is a positive increment. I check the combination rather than remove every zero in either clock field.
 
-### Step 2: turn the source columns into five inputs
+### Step 2: Turn the source columns into five inputs
 
 I use pandas to convert strings into numbers and dates, split the clock notation, and calculate the rating measures. For example:
 
@@ -180,13 +180,13 @@ df["log_base_seconds"] = np.log1p(df.base_seconds)
 df["log_increment_seconds"] = np.log1p(df.increment_seconds)
 ```
 
-The signed gap says which player has the advantage. Its absolute value distinguishes a close pairing from a mismatch. The average separates low-rated from high-rated pairings. Log transforms keep a very long clock from dominating the scale while preserving zero increments. These are design choices; they do not reveal a player's actual thought process or the true cause of a result.
+The signed gap says which player has the advantage. Its absolute value distinguishes a close pairing from a mismatch. The average separates low-rated from high-rated pairings. Log transforms keep a very long clock from dominating the scale while preserving zero increments.
 
-### Step 3: keep post-game information out
+### Step 3: Keep post-game information out
 
 I restrict the input matrix to those five columns. `Result` supplies the target but never enters the input matrix. I exclude rating changes, `Termination`, moves, opening names, ECO codes, and player names. Some fields plainly reveal the end of the game; others, such as the actual opening, are not known at the pre-game prediction moment. The collector does not save those unnecessary fields. Event labels, titles, IDs, and timestamps support checks but do not become predictors.
 
-### Step 4: split chronologically and fit preprocessing on training only
+### Step 4: Split chronologically and fit preprocessing on training only
 
 I sort games by UTC start time. The earliest **23,833** form the training set; the latest **5,959** form the test set. Training ends at **03:21:18 UTC**, and testing begins at **03:21:19 UTC**. I keep equal boundary timestamps together and verify that all three classes appear on each side and that no game ID crosses the split.
 
@@ -250,7 +250,7 @@ Balancing changes the behavior dramatically. Balanced logistic regression finds 
   <figcaption>Figure 4. Macro-F1 and draw recall tell different stories. Orange highlights the model selected from training validation, not a winner chosen after testing.</figcaption>
 </figure>
 
-### Look at each class, not just the average
+### Results across each class
 
 | Actual class | Precision | Recall | F1 | One-vs-rest ROC-AUC | Test games |
 |---|---:|---:|---:|---:|---:|
@@ -326,23 +326,19 @@ That distinction answers the central question: **these features contain some out
 
 ### What limits the conclusion?
 
-- **A short, nonrandom window.** The sample covers about four hours on one date. Archive ordering, time zones, tournaments, and a fixed sampling interval can affect its composition. I cannot generalize these rates to the whole month or to all chess.
-- **Rare draws and small groups.** Only 217 test games are draws. Classical and UltraBullet subsets are especially small. I report their counts and do not present their rates as stable population differences.
-- **Repeated players.** At least one player appeared in training in **45.9%** of test games. Identities are not features, but repeated players still create dependence. In a descriptive sensitivity check on the **3,225** test games with neither player seen in training, the fixed model's macro-F1 is **0.345**, versus 0.351 overall. That check is not a separately designed player-disjoint experiment.
-- **Start times are not completion times.** A long training game could still be running when a test game begins. Without finish times, this evaluation cannot guarantee that every training outcome would have been available at a real prediction moment.
-- **Incomplete information.** Ratings leave out rating deviation, volatility, and provisional-status details. The model also lacks form, fatigue, connection problems, time usage, and moves. Different time formats have different rating pools.
-- **Known bots are not all outside assistance.** BOT tags identify registered bot accounts. They cannot identify every undisclosed engine user or every data-quality issue.
-- **A small model search.** I test two families and a limited grid. The model chosen for macro-F1 need not be the best for probability calibration. I do not interpret a narrow validation lead as proof of superiority.
+This project has several limitations that affect how I interpret the results. The sample covers about four hours on a single date, so it may reflect the players and tournaments active during that period. Keeping every tenth game from the beginning of the archive also means the sample depends on how the archive orders its games. I therefore cannot assume these results represent the entire month or all chess games. Draws are uncommon, with only 217 in the test set, and the Classical and UltraBullet groups contain relatively few games. Their draw rates could change considerably with a larger sample. Repeated players create another concern: 45.9% of test games include at least one player who also appeared in training. Although I excluded player identities from the model’s inputs, games involving the same people may share patterns. When I checked the 3,225 test games where neither player appeared in training, the selected model’s macro-F1 fell from 0.351 to 0.345. This provides a useful comparison, but I would need to design a separate split around player identities to evaluate performance on unfamiliar players more carefully. I also split games by their start times without knowing when they finished. A long game in the training set could still have been running when a test game began, meaning its result would not yet have been available in a real prediction setting. The available inputs leave out information that could help explain outcomes. For example, the published ratings do not show how uncertain each rating is, and the model has no way to account for fatigue or connection problems. Ratings also come from separate pools for different time formats, which complicates comparisons across those formats. Removing accounts with BOT tags excludes registered bots, but it cannot identify every player who may have used outside assistance. Finally, I tested only two model families with a small range of settings. Another approach might perform better, and selecting a model using macro-F1 does not guarantee that it produces the most reliable probabilities. The selected model’s small validation advantage gives me limited evidence for preferring it over the alternatives.
 
 ### Responsible use
 
-The official archive permits reuse under CC0. I avoid publishing original player names and game URLs in the saved modeling table, but pseudonymous IDs and detailed public-game metadata are not a guarantee of anonymity. I report aggregate patterns rather than rank or criticize particular people.
+The official archive permits reuse under CC0. I avoided publishing original player names and game URLs in the saved modeling table. I just reported aggregate patterns; this is not meant to be a ranking or criticism of particular people.
 
-The likely cost of an error is a misleading forecast or expected-score display. That is relatively low stakes here, but inflated confidence still matters. I would not use this model to accuse someone of cheating, make claims about intelligence, recommend wagers, or replace an engine's position analysis.
+The likely cost of an error is a misleading forecast or expected score display. That is relatively low stakes here, but inflated confidence could still play a part in a player's mental. I would not use this model to accuse someone of cheating, make claims about intelligence, or replace an engine's position analysis.
 
 ### What would improve the experiment?
 
-The next useful step is broader sampling, not a more impressive-looking accuracy claim. I would collect games across multiple days, reserve a genuinely later period, and use completion times to ensure all training labels were available. I would also compare a player-disjoint split and include rating uncertainty if a suitable source provides it. Any threshold tuning or probability calibration would belong inside training validation, followed by a fresh untouched test set.
+The next useful step is broader sampling. I would collect games across multiple days, reserve a genuinely later period, and use completion times to ensure all training labels were available. Originally I wanted to use a different database that had around 1 million games, but I decided it would be better to use a smaller dataset for feasibility's sake. I'm not upset with this decision even though I think the model's metrics would have improved a lot, as I have still learned a lot from this analysis as a whole.
+
+I would also compare a player disjoint split and include rating uncertainty if a suitable source provides it. Any threshold tuning or probability calibration would belong inside training validation, followed by a fresh untouched test set.
 
 The main methodological lesson is that **a model can look acceptable on accuracy while failing one of the outcomes it was built to predict**. Keeping draws exposed that failure. Reporting it gives a more useful answer than deleting the difficult class or presenting the selected model as a clear improvement over a simple rule.
 
@@ -352,13 +348,13 @@ The main methodological lesson is that **a model can look acceptable on accuracy
 
 The [executed notebook](https://github.com/nreddi2/data-science-portfolio/blob/main/analysis/chess/chess_outcomes.ipynb) contains the full analysis, explanatory text, and saved outputs. The [analysis directory](https://github.com/nreddi2/data-science-portfolio/tree/main/analysis/chess) includes the saved sample, download script, pinned Python dependencies, cleaning log, split boundaries, model-selection results, and final predictions. The notebook checks the saved data's SHA-256 checksum before running. Seed 2301 controls randomized fitting and shuffling.
 
-The normal rerun reads the included CSV, so it needs no API key and does not repeat the archive download. See the [reproduction instructions](https://github.com/nreddi2/data-science-portfolio/blob/main/analysis/chess/README.md). All numerical results on this page come from the saved run, not estimates read from chart heights. Rounded values may differ slightly from the full-precision CSVs.
+The normal rerun reads the included CSV, so it needs no API key and does not repeat the archive download. See the [reproduction instructions](https://github.com/nreddi2/data-science-portfolio/blob/main/analysis/chess/README.md). All numerical results on this page come from the saved run. Rounded values may differ slightly from the full precision CSVs.
 
 ### AI usage and disclosure
 
 I used AI (GPT Terra 5.6) as a utility in this project. The assistance covered research planning, data collection and analysis code, debugging, guidance on producing charts, citations, and the overall formatting and organization of this page.
 
-The analysis generated the numerical results by executing code against the saved Lichess data. The development process checked exclusions, split boundaries, model outputs, and charts, including correcting a filter that would have wrongly excluded Swiss-tournament games. This disclosure does not claim that I personally reviewed every line.
+The analysis generated the numerical results by executing code against the saved Lichess data. The development process checked exclusions, split boundaries, model outputs, and charts, including correcting a filter that would have wrongly excluded Swiss tournament games. This disclosure does not claim that I personally reviewed every line.
 
 ### References
 
